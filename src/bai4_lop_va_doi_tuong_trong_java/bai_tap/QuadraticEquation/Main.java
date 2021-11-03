@@ -22,4 +22,6 @@ public class Main {
             System.out.println("The equation has no roots");
         }
     }
+
 }
+

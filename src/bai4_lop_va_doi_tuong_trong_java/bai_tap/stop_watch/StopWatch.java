@@ -1,22 +1,29 @@
 package bai4_lop_va_doi_tuong_trong_java.bai_tap.stop_watch;
 
 public class StopWatch {
-    private double startTime;
-    private double endTime;
+    private long startTime;
+    private long endTime;
 
-    public StopWatch(double startTime, double endTime){
-        this.startTime = startTime;
-        this.endTime = endTime;
-    }
 
-    public double getStartTime(){
+    public long getStartTime() {
         return this.startTime;
     }
-    public double getEndTime(){
+
+    public long getEndTime() {
         return this.endTime;
     }
 
-    public double start(){
-        
+    public long start() {
+        return this.startTime = System.currentTimeMillis();
     }
+
+    public long end() {
+        return this.endTime = System.currentTimeMillis();
+    }
+
+    public long getElapsedTime() {
+        return this.endTime - this.startTime;
+    }
+
+
 }

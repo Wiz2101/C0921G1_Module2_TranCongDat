@@ -10,13 +10,13 @@ public class Fan {
     private double radius = 5;
     private String color = "blue";
 
-    public void Fan (int speed, boolean on, double radius, String color){
+    public Fan (int speed, boolean on, double radius, String color){
         this.speed = speed;
         this.on = on;
         this.radius = radius;
         this.color = color;
     }
-
+    public Fan(){};
     public int getSpeed(){
         return this.speed;
     }
@@ -46,8 +46,6 @@ public class Fan {
         this.color = color;
     }
 
-    Fan(){}
-
     public String toString(){
         if (this.getOn()){
             return "Fan has radius: " + this.getRadius() + " with color " + this.getColor() + ". It is turning on with speed: " + this.getSpeed();
@@ -56,4 +54,6 @@ public class Fan {
 
         }
     }
+
+
 }
