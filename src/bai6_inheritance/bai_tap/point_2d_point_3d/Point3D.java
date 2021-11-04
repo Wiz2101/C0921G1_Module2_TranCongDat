@@ -1,7 +1,9 @@
 package bai6_inheritance.bai_tap.point_2d_point_3d;
 
+import java.util.Arrays;
+
 public class Point3D extends Point2D {
-    float z;
+    float z=0.0f;
     public Point3D(){
     }
 
@@ -19,18 +21,18 @@ public class Point3D extends Point2D {
     }
 
     public void setXYZ(float x, float y, float z){
-        this.getX(x) = x;
-        this.getY(y) = y;
+        this.setX(x);
+        this.setY(y);
         this.z = z;
     }
 
     public float[] getXYZ(){
-        float[] arr = {x,y,z};
+        float[] arr = {this.getX(),this.getY(),z};
         return arr;
     }
 
     @Override
     public String toString() {
-        return "The Point3D has x,y,z respectively: " + getXYZ() + ", which is a subclass of " + super.toString();
+        return "The Point3D has x,y,z respectively: " + this.getX() + this.getY() + getZ() + ", which is a subclass of " + super.toString();
     }
 }
