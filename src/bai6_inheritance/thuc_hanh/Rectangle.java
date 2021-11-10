@@ -1,7 +1,7 @@
 package bai6_inheritance.thuc_hanh;
 
 public class Rectangle extends Shape {
-    private double width = 1.0;
+    private double width = 2.0;
     private double height = 1.0;
 
     public Rectangle(){}
@@ -29,6 +29,7 @@ public class Rectangle extends Shape {
     }
 
     public double getArea(){
+        System.out.print("Rectangle Area: ");
         return width*height;
     }
 
