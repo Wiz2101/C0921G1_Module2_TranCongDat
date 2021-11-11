@@ -7,7 +7,7 @@ public class Booking {
     private String id;
     private String ServiceType;
 
-    public Booking(String bookingNo, String startDate, String endDate, String id, String serviceType) {
+    public Booking(String no, String bookingNo, String startDate, String endDate, String id, String serviceType) {
         this.bookingNo = bookingNo;
         this.startDate = startDate;
         this.endDate = endDate;
