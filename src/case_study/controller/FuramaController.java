@@ -120,7 +120,7 @@ public class FuramaController {
                                 System.out.println("---------------------");
                             case 3:
                                 System.out.println("---------------------");
-                                System.out.println("Create new constracts");
+                                System.out.println("Create new contracts");
                                 System.out.println("---------------------");
                             case 4:
                                 System.out.println("---------------------");

@@ -10,7 +10,7 @@ public class MoverablePoint extends Point {
         this.ySpeed = ySpeed;
     }
 
-    public MoverablePoint(){};
+    public MoverablePoint(){}
 
     public float getXSpeed(){
         return this.xSpeed;
@@ -42,9 +42,10 @@ public class MoverablePoint extends Point {
         return "x" + this.getX() + "y= " + this.getY() + "xs=" + getXSpeed() + "ys=" + getYSpeed();
     }
 
-    public MoverablePoint Move(){
+
+    public MoverablePoint move(){
         this.setX(this.getX()+this.getXSpeed());
         this.setY(this.getY()+this.getYSpeed());
-        return new MoverablePoint();
+        return this;
     }
 }

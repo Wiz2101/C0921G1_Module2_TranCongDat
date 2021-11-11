@@ -9,8 +9,8 @@ public class MoverablePointTest {
         System.out.println(moverablePoint);
 
         for (int i = 0; i <100 ; i++) {
-            moverablePoint.Move();
-            System.out.println(moverablePoint);
+            moverablePoint.move();
+            System.out.println(moverablePoint + "\t");
         }
     }
 }

@@ -1,4 +1,4 @@
-package bai6_inheritance.bai_tap.CircleAndCylinder;
+package bai6_inheritance.bai_tap.circle_and_cylinder;
 
 public class Test {
     public static void main(String[] args) {
