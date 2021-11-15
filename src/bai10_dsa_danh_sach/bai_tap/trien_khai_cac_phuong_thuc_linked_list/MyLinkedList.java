@@ -2,12 +2,8 @@ package bai10_dsa_danh_sach.bai_tap.trien_khai_cac_phuong_thuc_linked_list;
 
 import javax.xml.soap.Node;
 
-public class MyLinkedList {
-    private Node head;
-    private int numNode;
-    private boolean flag;
-
-    public class Node {
+public class MyLinkedList<E> {
+    private class Node {
         private Node next;
         private Object data;
 
@@ -20,102 +16,153 @@ public class MyLinkedList {
         }
     }
 
-    public MyLinkedList(Object data) {
-        head = new Node(data);
+    private Node head;
+    private int numNodes = 0;
+
+    public MyLinkedList() {
+
     }
 
-    public void add(int index, Object data) {
+    public void add(int index, E element) {
         Node temp = head;
         Node holder;
-
         for (int i = 0; i < index - 1 && temp.next != null; i++) {
             temp = temp.next;
         }
-
         holder = temp.next;
-        temp.next = new Node(data);
+        temp.next = new Node(element);
         temp.next.next = holder;
-        numNode++;
+        numNodes++;
     }
 
-    public void addFirst(Object data) {
+    public void addFirst(E element) {
         Node temp = head;
-        head = new Node(data);
+        head = new Node(element);
         head.next = temp;
-        numNode++;
+        numNodes++;
     }
 
-    public void addLast(Object data) {
-        if (head == null)
-            addFirst(data);
-        else {
-            Node temp = head;
-            while (temp.next != null) temp = temp.next;
-            temp.next = new Node(data);
-        }
-    }
-
-    public void remove(int index) {
+    public void addLast(E element) {
         Node temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        temp.next = new Node(element);
+        numNodes++;
+    }
 
-        for (int i = 0; i < index - 1 && temp.next != null; i++) {
+    public E remove(int index) {
+        if (index < 0 || index > numNodes) {
+            System.out.println("Lỗi index");
+        }
+        Node temp = head;
+        Object data;
+        if (index == 0) {
+            data = temp.data;
+            head = head.next;
+        } else {
+            for (int i = 0; i < index - 1 && temp.next != null; i++) {
+                temp = temp.next;
+            }
+            data = temp.next.data;
             temp.next = temp.next.next;
         }
-
-        numNode--;
+        numNodes--;
+        return (E) data;
     }
 
-    public void get(int index) {
-        Node temp = head;
-        for (int i = 0; i < index - 1; i++) temp = temp.next;
-        System.out.println(temp.data);
-    }
-
-    public void size() {
-        Node temp = head;
-        int i = 0;
-        while (temp != null) {
-            temp = temp.next;
-            i++;
-        }
-        System.out.println(i);
-    }
-
-    public boolean contains(Object data) {
-        Node temp = head;
-        for (int i = 0; i <= numNode; i++) {
-            if ((temp.data).equals(data)) {
-                flag = true;
-                break;
-            }
-            else {
-                flag = false;
+    public boolean remove(E element) {
+        if (head.data.equals(element)) {
+            remove(0);
+            return true;
+        } else {
+            Node temp = head;
+            while (temp.next != null) {
+                if (temp.next.data.equals(element)) {
+                    temp.next = temp.next.next;
+                    numNodes--;
+                    return true;
+                }
                 temp = temp.next;
             }
+            return false;
         }
-        return flag;
     }
 
-    public int indexOf(Object data) {
-        Node temp = head;
-        int q = 0;
-        for (int i = 0; i <= numNode; i++) {
-            if ((temp.data).equals(data)) {
-                q = i;
-                break;
-            }
-            else {
-                temp = temp.next;
-            }
-        }
-        return q;
+    public int size() {
+        return numNodes;
     }
 
-    public void printList() {
+    public MyLinkedList<E> clone() {
+        if (numNodes == 0) {
+            System.out.println("Lỗi");
+        }
+        MyLinkedList<E> temp = new MyLinkedList<E>();
+        Node tempNode = head;
+        temp.addFirst((E) tempNode.data);
+        tempNode = tempNode.next;
+        while (tempNode != null) {
+            temp.addLast((E) tempNode.data);
+            tempNode = tempNode.next;
+        }
+        return temp;
+    }
+
+    public Object get(int index) {
         Node temp = head;
-        while (temp != null) {
-            System.out.println(temp.data);
+        for (int i = 0; i < index; i++) {
             temp = temp.next;
         }
+        return temp.data;
+    }
+
+    public boolean contains(E element) {
+        Node temp = head;
+        while (temp.data != null) {
+            if (temp.data.equals(element)) {
+                return true;
+            }
+            temp = temp.next;
+        }
+        if (temp.data.equals(element)) {
+            return true;
+        }
+        return false;
+    }
+
+    public int indexOf(E element) {
+        Node temp = head;
+        for (int i = 0; i < numNodes; i++) {
+            if (temp.getData().equals(element)) {
+                return i;
+            }
+            temp = temp.next;
+        }
+        return -1;
+    }
+
+    public E getFirst() {
+        return (E) head.data;
+    }
+
+    public E getLast() {
+        Node temp = head;
+        for (int i = 0; i < size() - 1; i++) {
+            temp = temp.next;
+        }
+        return (E) temp.data;
+    }
+
+    public void clear() {
+        Node temp = head;
+        for (int i = 0; i < numNodes; i++) {
+            temp.data = null;
+            temp = temp.next;
+        }
+        numNodes = 0;
+    }
+
+    public int getSize() {
+        return numNodes;
     }
 }

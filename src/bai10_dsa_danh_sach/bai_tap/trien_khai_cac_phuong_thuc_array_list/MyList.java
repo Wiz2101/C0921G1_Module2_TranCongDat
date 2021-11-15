@@ -3,60 +3,116 @@ package bai10_dsa_danh_sach.bai_tap.trien_khai_cac_phuong_thuc_array_list;
 import java.util.Arrays;
 
 public class MyList<E> {
+    //số phần tử trong mảng list (Default = 0)
     private int size = 0;
-    private static final int DEFAULT_CAPACITY = 10;
-    private Object elements[];
+    //Sức chứa default của mảng list
+    private static final int Default_Capacity = 10;
+    //
+    Object elements [];
 
+    //contractor ko tham số sức chứa mặc định
     public MyList() {
-        elements = new Object[DEFAULT_CAPACITY];
+        elements = new Object[Default_Capacity];
     }
 
+    //contractor có tham số suscws chứa đc truyền vào
     public MyList(int capacity) {
-        if (capacity > 0) {
+        if(capacity>=0) {
             elements = new Object[capacity];
         }
-    }
-
-    //    @Override
-//    public Object clone()
-//    {
-//        try {
-//            MyList<E> v = (MyList<E>) super.clone();
-//            v.elements = Arrays.copyOf(elements, size);
-////            v.modCount = 0;
-//            return v;
-//        } catch (CloneNotSupportedException e) {
-//            throw new InternalError(e);
-//        }
-//    }
-    public E clone() {
-        Object[] newElements = Arrays.copyOf(elements, size);
-        return (E) Arrays.toString(newElements);
-    }
-
-    private void ensureCapa() {
-        int newSize = elements.length * 2;
-        elements = Arrays.copyOf(elements, newSize);
-    }
-
-    public void add(int index, E element) {
-        if (index >= size || index < 0) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Size " + index);
+        else{
+            throw new IllegalArgumentException("capacity: "+capacity);
         }
-        elements[size++] = element;
     }
-
-    public void add(E e) {
-        if (size == elements.length) {
-            ensureCapa();
-        }
-        elements[size++] = e;
+    //lấy số lượng phần tử
+    public int getSize(){
+        return this.size;
     }
-
-    public E get(int i) {
-        if (i >= size || i < 0) {
-            throw new IndexOutOfBoundsException("Index: " + i + ", Size " + i);
+    //clear tất cả phần tử
+    public void clear(){
+        size = 0;
+        for (Object i:elements) {
+            i = null;
         }
-        return (E) elements[i];
+    }
+    //add phần tử vào cuối và kiểm tra
+    public boolean add(E element){
+        if (elements.length==size){
+            this.ensureCapacity(1);
+        }
+        elements[size] = element;
+        size++;
+        return true;
+    }
+    //thay đổi sức chứa
+    public void ensureCapacity(int minCapacity){
+        if (minCapacity>0){
+            int newCapacity = this.elements.length + minCapacity;
+            elements = Arrays.copyOf(elements,newCapacity);
+        }
+        else {
+            throw new IllegalArgumentException("Capacity: "+minCapacity);
+        }
+    }
+    //add phần tử tại vị trí chỉ định
+    public void add(E element, int index){
+        if (index>elements.length){
+            throw new IllegalArgumentException("index: "+index);
+        }
+        else if(elements.length == size){
+            this.ensureCapacity(1);
+        }
+
+        if(elements[index] == null){
+            elements[index] = element;
+            size++;
+        }
+        else{
+            for (int i = size+1; i >index ; i--) {
+                elements[i] = elements[i-1];
+            }
+            elements[index]= element;
+            size++;
+        }
+
+    }
+    //get phần tử tại vị trí chỉ định
+    public E get(int index){
+        return (E) elements[index];
+    }
+    //get index của phần tử
+    public int indextOf(E element){
+        int index = -1;
+        for(int i =0; i<size; i++){
+            if(this.elements[i].equals(element)){
+                return i;
+            }
+        }
+        return index;
+    }
+    //kiểm tra phần tử có tồn tại không
+    public boolean contain(E element){
+        return this.indextOf(element) >=0;
+    }
+    //Clone list
+    public MyList<E> clone(){
+        MyList<E> clone = new MyList<>();
+        clone.elements=Arrays.copyOf(this.elements,this.size);
+        clone.size = this.size;
+        return clone;
+    }
+    //xóa 1 phần tử tại vị trí chỉ đinh
+    public E remove(int index){
+        if(index<0||index>elements.length){
+            throw new IllegalArgumentException("Index: "+index);
+        }
+        E element = (E) elements[index];
+        for (int i = index; i < size-1; i++) {
+            elements[i] = elements[i+1] ;
+
+        }
+        elements[size-1] =null;
+        size--;
+        return element;
     }
 }
