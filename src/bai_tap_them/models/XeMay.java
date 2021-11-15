@@ -7,12 +7,18 @@ public class XeMay extends PhuongTien {
         this.congSuat = congSuat;
     }
 
-    public XeMay(String bienKiemSoat, int namSX, String chuSoHuu, double congSuat) {
-        super(bienKiemSoat, namSX, chuSoHuu);
+    public XeMay(String bienKiemSoat, String hangSX, int namSX, String chuSoHuu, double congSuat) {
+        super(bienKiemSoat, hangSX, namSX, chuSoHuu);
         this.congSuat = congSuat;
     }
 
+    public double getCongSuat() {
+        return congSuat;
+    }
 
+    public void setCongSuat(double congSuat) {
+        this.congSuat = congSuat;
+    }
 
     @Override
     public String toString() {

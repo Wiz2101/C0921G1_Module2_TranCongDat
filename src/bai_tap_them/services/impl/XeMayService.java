@@ -4,8 +4,10 @@ import bai_tap_them.models.XeMay;
 import bai_tap_them.services.IXeMayService;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class XeMayService implements IXeMayService {
+    Scanner scanner = new Scanner(System.in);
     ArrayList<XeMay> xeMayArrayList = new ArrayList<>();
 
     @Override
@@ -20,19 +22,22 @@ public class XeMayService implements IXeMayService {
         }
     }
 
-//    @Override
-//    public void delXeMay(int id) {
-//        for (int i = 0; i < xeMayArrayList.size(); i++) {
-//            if (xeMayArrayList.get(i).getId() == id) {
-//                xeMayArrayList.remove(i);
-//            }
-//        }
-//    }
+    @Override
+    public void delXeMay() {
+        System.out.println("Nhập biển kiếm soát cần xóa");
+        String bienKiemSoat = scanner.nextLine();
+        for (int i = 0; i < xeMayArrayList.size(); i++) {
+            if(xeMayArrayList.get(i).getBienKiemSoat().equals(bienKiemSoat)){
+                xeMayArrayList.remove(i);
+            }
+        }
+    }
 
     @Override
     public String toString() {
         return "XeMayService{" +
-                "xeMayArrayList=" + xeMayArrayList +
+                "scanner=" + scanner +
+                ", xeMayArrayList=" + xeMayArrayList +
                 '}';
     }
 }

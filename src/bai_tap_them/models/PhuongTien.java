@@ -1,23 +1,17 @@
 package bai_tap_them.models;
 
-public abstract class PhuongTien extends HangSanXuat{
+public abstract class PhuongTien {
     private String bienKiemSoat;
-
+    private String hangSX;
     private int namSX;
     private String chuSoHuu;
 
     public PhuongTien() {
     }
 
-    public PhuongTien(String bienKiemSoat, int namSX, String chuSoHuu) {
+    public PhuongTien(String bienKiemSoat, String hangSX, int namSX, String chuSoHuu) {
         this.bienKiemSoat = bienKiemSoat;
-        this.namSX = namSX;
-        this.chuSoHuu = chuSoHuu;
-    }
-
-    public PhuongTien(String[] hangSX, String bienKiemSoat, int namSX, String chuSoHuu) {
-        super(hangSX);
-        this.bienKiemSoat = bienKiemSoat;
+        this.hangSX = hangSX;
         this.namSX = namSX;
         this.chuSoHuu = chuSoHuu;
     }
@@ -28,6 +22,14 @@ public abstract class PhuongTien extends HangSanXuat{
 
     public void setBienKiemSoat(String bienKiemSoat) {
         this.bienKiemSoat = bienKiemSoat;
+    }
+
+    public String getHangSX() {
+        return hangSX;
+    }
+
+    public void setHangSX(String hangSX) {
+        this.hangSX = hangSX;
     }
 
     public int getNamSX() {
@@ -50,6 +52,7 @@ public abstract class PhuongTien extends HangSanXuat{
     public String toString() {
         return "PhuongTien{" +
                 "bienKiemSoat='" + bienKiemSoat + '\'' +
+                ", hangSX='" + hangSX + '\'' +
                 ", namSX=" + namSX +
                 ", chuSoHuu='" + chuSoHuu + '\'' +
                 '}';

@@ -25,9 +25,7 @@ public class ControllerXeTai {
         xeTaiService.addXeTai(xeTai);
     }
 
-//    public void delXeTai(){
-//        System.out.println("Vui lòng nhập số thứ tự xe tải muốn xóa:");
-//        int id = scanner.nextInt();
-//        xeTaiService.delXeTai(id);
-//    }
+    public void delXeTai(){
+        xeTaiService.delXeTai();
+    }
 }

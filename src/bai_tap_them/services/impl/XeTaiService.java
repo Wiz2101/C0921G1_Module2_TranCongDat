@@ -4,8 +4,10 @@ import bai_tap_them.models.XeTai;
 import bai_tap_them.services.IXeTaiService;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class XeTaiService implements IXeTaiService {
+    Scanner scanner = new Scanner(System.in);
     ArrayList<XeTai> xeTaiArrayList = new ArrayList<>();
 
     @Override
@@ -20,13 +22,22 @@ public class XeTaiService implements IXeTaiService {
         }
     }
 
-//    @Override
-//    public void delXeTai(int id) {
-//        for (int i = 0; i < xeTaiArrayList.size(); i++) {
-//            if(xeTaiArrayList.get(i).getId() == id){
-//                xeTaiArrayList.remove(i);
-//            }
-//        }
-//    }
+    @Override
+    public void delXeTai() {
+        System.out.println("Nhập biển kiếm soát cần xóa");
+        String bienKiemSoat = scanner.nextLine();
+        for (int i = 0; i < xeTaiArrayList.size(); i++) {
+            if(xeTaiArrayList.get(i).getBienKiemSoat().equals(bienKiemSoat)){
+                xeTaiArrayList.remove(i);
+            }
+        }
+    }
 
+    @Override
+    public String toString() {
+        return "XeTaiService{" +
+                "scanner=" + scanner +
+                ", xeTaiArrayList=" + xeTaiArrayList +
+                '}';
+    }
 }

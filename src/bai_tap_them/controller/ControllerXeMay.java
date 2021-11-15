@@ -14,27 +14,18 @@ public class ControllerXeMay {
         System.out.println("Nhập biển kiểm soát: ");
         String bienKiemSoat = scanner.nextLine();
         System.out.println("Nhập hãng SX: ");
-        System.out.println("0.HSX-001,Yamaha,Nhật Bản\t\n" +
-                "1.HSX-002,Honda,Nhật Bản\t\n" +
-                "2.HSX-003, Dongfeng,Trung Quốc\n" +
-                "3.HSX-004, Huyndai,Hàn Quốc\n" +
-                "4.HSX-005, Ford,Mỹ\n" +
-                "5.HSX-006, Toyota,Nhật Bản\n" +
-                "6.HSX-006, Hino,Nhật Bản\n");
-        int choice = scanner.nextInt();
+        String hangSX = scanner.nextLine();
         System.out.println("Nhập năm SX: ");
         int namSX = Integer.parseInt(scanner.nextLine());
         System.out.println("Nhập tên chủ sở hữu: ");
         String chuSoHuu = scanner.nextLine();
         System.out.println("Nhập công suất:");
         double congSuat = Double.parseDouble(scanner.nextLine());
-        xeMay = new XeMay(bienKiemSoat,namSX,chuSoHuu,congSuat);
+        xeMay = new XeMay(bienKiemSoat,hangSX, namSX,chuSoHuu,congSuat);
         xeMayService.addXeMay(xeMay);
     }
 
-//    public void delXeMay(){
-//        System.out.println("Vui lòng nhập số thứ tự xe ô tô muốn xóa:");
-//        int id = scanner.nextInt();
-//        xeMayService.delXeMay(id);
-//    }
+    public void delXeMay(){
+        xeMayService.delXeMay();
+    }
 }

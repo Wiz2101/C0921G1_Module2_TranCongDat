@@ -27,10 +27,8 @@ public class ControllerOto {
         otoService.addOto(oto);
     }
 
-//    public void delOto(){
-//        System.out.println("Vui lòng nhập số thứ tự xe ô tô muốn xóa:");
-//        int id = scanner.nextInt();
-//        otoService.delOto(id);
-//    }
+    public void delOto(){
+        otoService.delOto();
+    }
 
 }

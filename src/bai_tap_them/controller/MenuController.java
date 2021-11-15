@@ -11,12 +11,12 @@ import java.util.Scanner;
 
 public class MenuController {
     Scanner scanner = new Scanner(System.in);
-    IXeTaiService xeTaiService = new XeTaiService();
     ControllerXeTai controllerXeTai = new ControllerXeTai();
-    IOtoService otoService = new OtoService();
+    XeTaiService xeTaiService = new XeTaiService();
     ControllerOto controllerOto = new ControllerOto();
-    IXeMayService xeMayService = new XeMayService();
+    OtoService otoService = new OtoService();
     ControllerXeMay controllerXeMay = new ControllerXeMay();
+    XeMayService xeMayService = new XeMayService();
 
     public void displayMainMenu() {
         int input;
@@ -88,20 +88,20 @@ public class MenuController {
                             "4. Thoát\n");
                     System.out.println("Vui lòng nhập lựa chọn của bạn: ");
                     subInput = scanner.nextInt();
-//                    switch (subInput){
-//                        case 1:
-//                            controllerXeTai.delXeTai();
-//                            break;
-//                        case 2:
-//                            controllerOto.delOto();
-//                            break;
-//                        case 3:
-//                            controllerXeMay.delXeMay();
-//                            break;
-//                        default:
-//                            System.out.println("Vui lòng chọn từ 1-4");
-//                    }
-//                    break;
+                    switch (subInput){
+                        case 1:
+                            controllerXeTai.delXeTai();
+                            break;
+                        case 2:
+                            controllerOto.delOto();
+                            break;
+                        case 3:
+                            controllerXeMay.delXeMay();
+                            break;
+                        default:
+                            System.out.println("Vui lòng chọn từ 1-4");
+                    }
+                    break;
                 default:
                     break;
             }
