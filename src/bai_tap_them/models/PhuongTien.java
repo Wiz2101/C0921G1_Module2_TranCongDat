@@ -50,11 +50,9 @@ public abstract class PhuongTien {
 
     @Override
     public String toString() {
-        return "PhuongTien{" +
-                "bienKiemSoat='" + bienKiemSoat + '\'' +
+        return  "bienKiemSoat='" + bienKiemSoat + '\'' +
                 ", hangSX='" + hangSX + '\'' +
                 ", namSX=" + namSX +
-                ", chuSoHuu='" + chuSoHuu + '\'' +
-                '}';
+                ", chuSoHuu='" + chuSoHuu + '\'';
     }
 }

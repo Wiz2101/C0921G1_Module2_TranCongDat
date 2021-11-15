@@ -4,10 +4,12 @@ import bai_tap_them.models.XeMay;
 import bai_tap_them.services.IXeMayService;
 import bai_tap_them.services.impl.XeMayService;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ControllerXeMay {
     IXeMayService xeMayService = new XeMayService();
+    ArrayList<XeMay> xeMayArrayList = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
     public void addXeMay() {
         XeMay xeMay = null;
@@ -23,6 +25,9 @@ public class ControllerXeMay {
         double congSuat = Double.parseDouble(scanner.nextLine());
         xeMay = new XeMay(bienKiemSoat,hangSX, namSX,chuSoHuu,congSuat);
         xeMayService.addXeMay(xeMay);
+    }
+    public void displayXeMay() {
+        xeMayService.displayXeMay();
     }
 
     public void delXeMay(){

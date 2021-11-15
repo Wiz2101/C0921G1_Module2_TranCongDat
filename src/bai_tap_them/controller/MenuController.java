@@ -12,11 +12,8 @@ import java.util.Scanner;
 public class MenuController {
     Scanner scanner = new Scanner(System.in);
     ControllerXeTai controllerXeTai = new ControllerXeTai();
-    XeTaiService xeTaiService = new XeTaiService();
     ControllerOto controllerOto = new ControllerOto();
-    OtoService otoService = new OtoService();
     ControllerXeMay controllerXeMay = new ControllerXeMay();
-    XeMayService xeMayService = new XeMayService();
 
     public void displayMainMenu() {
         int input;
@@ -66,13 +63,13 @@ public class MenuController {
                     subInput = scanner.nextInt();
                     switch (subInput){
                         case 1:
-                            xeTaiService.displayXeTai();
+                            controllerXeTai.displayXeTai();
                             break;
                         case 2:
-                            otoService.displayOto();
+                            controllerOto.displayOto();
                             break;
                         case 3:
-                            xeMayService.displayXeMay();
+                            controllerXeMay.displayXeMay();
                             break;
                         case 4:
                             break;

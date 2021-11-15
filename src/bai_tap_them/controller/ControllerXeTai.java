@@ -4,11 +4,13 @@ import bai_tap_them.models.XeTai;
 import bai_tap_them.services.IXeTaiService;
 import bai_tap_them.services.impl.XeTaiService;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ControllerXeTai {
     IXeTaiService xeTaiService = new XeTaiService();
     Scanner scanner = new Scanner(System.in);
+    ArrayList<XeTai> xeTaiArrayList = new ArrayList<>();
     public void addXeTai() {
         XeTai xeTai = null;
         System.out.println("Nhập biển kiểm soát: ");
@@ -23,6 +25,10 @@ public class ControllerXeTai {
         double taiTrong = Double.parseDouble(scanner.nextLine());
         xeTai = new XeTai(bienKiemSoat,hangSX,namSX,chuSoHuu,taiTrong);
         xeTaiService.addXeTai(xeTai);
+    }
+
+    public void displayXeTai() {
+        xeTaiService.displayXeTai();
     }
 
     public void delXeTai(){

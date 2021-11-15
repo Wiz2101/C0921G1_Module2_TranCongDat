@@ -4,10 +4,12 @@ import bai_tap_them.models.Oto;
 import bai_tap_them.services.IOtoService;
 import bai_tap_them.services.impl.OtoService;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ControllerOto {
     IOtoService otoService = new OtoService();
+    ArrayList<Oto> otoArrayList = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
     public void addOto() {
         Oto oto = null;
@@ -25,6 +27,10 @@ public class ControllerOto {
         String kieuXe = scanner.nextLine();
         oto = new Oto(bienKiemSoat,hangSX,namSX,chuSoHuu,soChoNgoi,kieuXe);
         otoService.addOto(oto);
+    }
+
+    public void displayOto() {
+        otoService.displayOto();
     }
 
     public void delOto(){

@@ -31,6 +31,7 @@ public class XeMayService implements IXeMayService {
                 xeMayArrayList.remove(i);
             }
         }
+        displayXeMay();
     }
 
     @Override
