@@ -2,7 +2,7 @@ package bai10_dsa_danh_sach.bai_tap.trien_khai_cac_phuong_thuc_linked_list;
 
 public class MyLinkedListTest {
     public static void main(String[] args) {
-        MyLinkedList list = new MyLinkedList(1);
+        MyLinkedList list = new MyLinkedList();
         list.add(1, 2);
         list.add(2,"Melinda");
         list.add(3,4);
