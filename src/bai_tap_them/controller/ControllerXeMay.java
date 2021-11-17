@@ -1,5 +1,6 @@
 package bai_tap_them.controller;
 
+import bai_tap_them.models.HangSX;
 import bai_tap_them.models.XeMay;
 import bai_tap_them.services.IXeMayService;
 import bai_tap_them.services.impl.XeMayService;
@@ -10,6 +11,13 @@ import java.util.Scanner;
 public class ControllerXeMay {
     IXeMayService xeMayService = new XeMayService();
     ArrayList<XeMay> xeMayArrayList = new ArrayList<>();
+    HangSX hangSX1 = new HangSX("HSX-001", "Yamaha", "Nhật Bản");
+    HangSX hangSX2 = new HangSX("HSX-002", "Honda", "Nhật Bản");
+    HangSX hangSX3 = new HangSX("HSX-003", " Dongfeng", "Trung Quốc");
+    HangSX hangSX4 = new HangSX("HSX-004", " Huyndai", "Hàn Quốc");
+    HangSX hangSX5 = new HangSX("HSX-005", " Ford", "Mỹ");
+    HangSX hangSX6 = new HangSX("HSX-006", " Toyota", "Nhật Bản");
+    HangSX hangSX7 = new HangSX("HSX-006", " Hino", "Nhật Bản");
     Scanner scanner = new Scanner(System.in);
     public void addXeMay() {
         XeMay xeMay = null;
