@@ -3,7 +3,7 @@ package review.controllers;
 import java.util.Scanner;
 
 public class MenuController {
-    public void displayMenu(){
+    public void displayMenu() {
         ExperienceCandidateController experienceCandidateController = new ExperienceCandidateController();
         FresherCandidateController fresherCandidateController = new FresherCandidateController();
         InternCandidateController internCandidateController = new InternCandidateController();
@@ -21,7 +21,7 @@ public class MenuController {
                     "5.\tExit\n");
             System.out.println("Please enter your choice: ");
             choice = scanner.nextInt();
-            switch (choice){
+            switch (choice) {
                 case 1:
                     System.out.println("===========EXPERIENCE CANDIDATE============");
                     experienceCandidateController.addExperienceCandidate();
@@ -29,7 +29,7 @@ public class MenuController {
                     System.out.println("Do you want to continue (Y/N)?");
                     scanner.skip("\\R");
                     subChoice = scanner.nextLine().toLowerCase();
-                    switch (subChoice){
+                    switch (subChoice) {
                         case "y":
                             experienceCandidateController.addExperienceCandidate();
                         case "n":
@@ -43,7 +43,7 @@ public class MenuController {
                     System.out.println("Do you want to continue (Y/N)?");
                     scanner.skip("\\R");
                     subChoice = scanner.nextLine().toLowerCase();
-                    switch (subChoice){
+                    switch (subChoice) {
                         case "y":
                             fresherCandidateController.addFresherCandidate();
                         case "n":
@@ -57,7 +57,7 @@ public class MenuController {
                     System.out.println("Do you want to continue (Y/N)?");
                     scanner.skip("\\R");
                     subChoice = scanner.nextLine().toLowerCase();
-                    switch (subChoice){
+                    switch (subChoice) {
                         case "y":
                             internCandidateController.addInternCandidate();
                         case "n":

@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface IFresherCandidates {
     public void addFresherCandidate(FresherCandidates fresherCandidates);
+
     public void displayFresherCandidate(List<FresherCandidates> fresherCandidatesList);
+
     public void searchFresherCandidate();
 }

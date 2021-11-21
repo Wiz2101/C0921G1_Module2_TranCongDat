@@ -4,16 +4,16 @@ public abstract class Candidates {
     private String idCandidate;
     private String firstName;
     private String lastName;
-    private String dOB;
+    private int dOB;
     private String address;
-    private int phoneNum;
+    private long phoneNum;
     private String email;
     private int candidateType;
 
     public Candidates() {
     }
 
-    public Candidates(String idCandidate, String firstName, String lastName, String dOB, String address, int phoneNum, String email, int candidateType) {
+    public Candidates(String idCandidate, String firstName, String lastName, int dOB, String address, long phoneNum, String email, int candidateType) {
         this.idCandidate = idCandidate;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -48,11 +48,11 @@ public abstract class Candidates {
         this.lastName = lastName;
     }
 
-    public String getdOB() {
+    public int getdOB() {
         return dOB;
     }
 
-    public void setdOB(String dOB) {
+    public void setdOB(int dOB) {
         this.dOB = dOB;
     }
 
@@ -64,7 +64,7 @@ public abstract class Candidates {
         this.address = address;
     }
 
-    public int getPhoneNum() {
+    public double getPhoneNum() {
         return phoneNum;
     }
 
@@ -90,7 +90,7 @@ public abstract class Candidates {
 
     @Override
     public String toString() {
-        return  "idCandidate='" + idCandidate + '\'' +
+        return "idCandidate='" + idCandidate + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", dOB='" + dOB + '\'' +

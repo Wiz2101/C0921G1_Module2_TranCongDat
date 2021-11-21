@@ -1,6 +1,6 @@
 package review.models;
 
-public class ExperienceCandidates extends Candidates{
+public class ExperienceCandidates extends Candidates {
     private double expInYear;
     private String proSkill;
 
@@ -12,7 +12,7 @@ public class ExperienceCandidates extends Candidates{
         this.proSkill = proSkill;
     }
 
-    public ExperienceCandidates(String idCandidate, String firstName, String lastName, String dOB, String address, int phoneNum, String email, int candidateType, double expInYear, String proSkill) {
+    public ExperienceCandidates(String idCandidate, String firstName, String lastName, int dOB, String address, long phoneNum, String email, int candidateType, double expInYear, String proSkill) {
         super(idCandidate, firstName, lastName, dOB, address, phoneNum, email, candidateType);
         this.expInYear = expInYear;
         this.proSkill = proSkill;
@@ -34,7 +34,7 @@ public class ExperienceCandidates extends Candidates{
         this.proSkill = proSkill;
     }
 
-    public String getFirstName(){
+    public String getFirstName() {
         return super.getFirstName();
     }
 
