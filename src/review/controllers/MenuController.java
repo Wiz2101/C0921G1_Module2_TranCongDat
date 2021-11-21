@@ -10,7 +10,7 @@ public class MenuController {
         CandidatesController candidatesController = new CandidatesController();
         Scanner scanner = new Scanner(System.in);
         int choice;
-        int subChoice;
+        String subChoice;
 
         do {
             System.out.println("CANDIDATE MANAGEMENT SYSTEM\n" +
@@ -23,28 +23,56 @@ public class MenuController {
             choice = scanner.nextInt();
             switch (choice){
                 case 1:
-                    System.out.println("Create an Experience Candidate");
+                    System.out.println("===========EXPERIENCE CANDIDATE============");
                     experienceCandidateController.addExperienceCandidate();
                     experienceCandidateController.displayExperienceCandidate();
+                    System.out.println("Do you want to continue (Y/N)?");
+                    scanner.skip("\\R");
+                    subChoice = scanner.nextLine().toLowerCase();
+                    switch (subChoice){
+                        case "y":
+                            experienceCandidateController.addExperienceCandidate();
+                        case "n":
+                            break;
+                    }
                     break;
                 case 2:
-                    System.out.println("Create a Fresher Candidate");
-                    fresherCandidateController.addExperienceCandidate();
-                    fresherCandidateController.displayExperienceCandidate();
+                    System.out.println("==========FRESHER CANDIDATE==============   ");
+                    fresherCandidateController.addFresherCandidate();
+                    fresherCandidateController.displayFresherCandidate();
+                    System.out.println("Do you want to continue (Y/N)?");
+                    scanner.skip("\\R");
+                    subChoice = scanner.nextLine().toLowerCase();
+                    switch (subChoice){
+                        case "y":
+                            fresherCandidateController.addFresherCandidate();
+                        case "n":
+                            break;
+                    }
                     break;
                 case 3:
-                    System.out.println("Create an Intern Candidate");
+                    System.out.println("===========INTERN CANDIDATE==============");
                     internCandidateController.addInternCandidate();
                     internCandidateController.displayInternCandidate();
+                    System.out.println("Do you want to continue (Y/N)?");
+                    scanner.skip("\\R");
+                    subChoice = scanner.nextLine().toLowerCase();
+                    switch (subChoice){
+                        case "y":
+                            internCandidateController.addInternCandidate();
+                        case "n":
+                            break;
+                    }
                     break;
                 case 4:
                     System.out.println("Searching");
+                    System.out.println("===========EXPERIENCE CANDIDATE============");
                     experienceCandidateController.displayExperienceCandidate();
-                    fresherCandidateController.displayExperienceCandidate();
+                    System.out.println("==========FRESHER CANDIDATE==============   ");
+                    fresherCandidateController.displayFresherCandidate();
+                    System.out.println("===========INTERN CANDIDATE==============");
                     internCandidateController.displayInternCandidate();
-                    System.out.println("Enter the name would like to find");
-                    String input = scanner.nextLine();
-                    CandidatesController.searchCandidates(input);
+                    CandidatesController.searchCandidates();
                     break;
                 case 5:
                     break;

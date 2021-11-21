@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class ExperienceCandidateController {
     ExperienceCandidateService experienceCandidateService = new ExperienceCandidateService();
-    List<ExperienceCandidates> experienceCandidatesList = new ArrayList<>();
+    static List<ExperienceCandidates> experienceCandidatesList = new ArrayList<>();
     static List<Candidates> candidatesList = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
     public static void addExperienceCandidate(){
@@ -39,6 +39,10 @@ public class ExperienceCandidateController {
         candidatesList.add(new ExperienceCandidates("E2","Aguirre","Eva","1990","Sao paulo",940394,"eva@asante.com",0,2.5,"abc"));
         candidatesList.add(new ExperienceCandidates("E3","Ahlgren","Maria","1987","Paris",682172,"sas@gmail.com",0,2.5,"acb"));
         candidatesList.add(new ExperienceCandidates("E4","Antošová","Adeleva","1989","Rio de janero",984933,"sadelave@janeo.com",0,2.5,"abc"));
+        experienceCandidatesList.add(new ExperienceCandidates("E1","Aelbrecht","Stefan","1991","London",612811,"sas@gmail.com",0,2.5,"acb"));
+        experienceCandidatesList.add(new ExperienceCandidates("E2","Aguirre","Eva","1990","Sao paulo",940394,"eva@asante.com",0,2.5,"abc"));
+        experienceCandidatesList.add(new ExperienceCandidates("E3","Ahlgren","Maria","1987","Paris",682172,"sas@gmail.com",0,2.5,"acb"));
+        experienceCandidatesList.add(new ExperienceCandidates("E4","Antošová","Adeleva","1989","Rio de janero",984933,"sadelave@janeo.com",0,2.5,"abc"));
     }
 
 
