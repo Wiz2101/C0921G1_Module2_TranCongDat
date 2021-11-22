@@ -68,7 +68,7 @@ public abstract class Candidates {
         return phoneNum;
     }
 
-    public void setPhoneNum(int phoneNum) {
+    public void setPhoneNum(long phoneNum) {
         this.phoneNum = phoneNum;
     }
 

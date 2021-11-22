@@ -11,9 +11,9 @@ public class CandidatesController {
     static Scanner scanner = new Scanner(System.in);
 
     public static void searchCandidates() {
-        listCandidates.addAll(ExperienceCandidateController.candidatesList);
-        listCandidates.addAll(FresherCandidateController.candidatesList);
-        listCandidates.addAll(InternCandidateController.candidatesList);
+        listCandidates.addAll(ExperienceCandidateController.returnExpList());
+        listCandidates.addAll(FresherCandidateController.returnFreCanList());
+        listCandidates.addAll(InternCandidateController.returnIntCanList());
         System.out.println("Enter the name would like to find: ");
         String inputName = scanner.nextLine();
         System.out.println("The result of your search: ");
@@ -25,10 +25,4 @@ public class CandidatesController {
             }
         }
     }
-
-    public static void main(String[] args) {
-
-        System.out.println(listCandidates);
-    }
-
 }

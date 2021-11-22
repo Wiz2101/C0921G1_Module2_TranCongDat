@@ -1,6 +1,5 @@
 package review.controllers;
 
-import review.models.Candidates;
 import review.models.ExperienceCandidates;
 import review.services.impl.ExperienceCandidateService;
 
@@ -9,9 +8,10 @@ import java.util.*;
 public class ExperienceCandidateController {
     ExperienceCandidateService experienceCandidateService = new ExperienceCandidateService();
     static List<ExperienceCandidates> experienceCandidatesList = new ArrayList<>();
-    static List<Candidates> candidatesList = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
-    public static void addExperienceCandidate(){
+
+    //Create
+    public static void addExperienceCandidate() {
         int dob;
         long phoneNumber;
         double expInYear;
@@ -31,7 +31,7 @@ public class ExperienceCandidateController {
         do {
             System.out.println("Enter the phone number");
             phoneNumber = Long.parseLong(scanner.nextLine());
-        } while (!(phoneNumber>=1000000000));
+        } while (!(phoneNumber >= 1000000000));
         System.out.println("Enter the email");
         String email = scanner.nextLine();
         System.out.println("Enter the type of candidate");
@@ -39,28 +39,56 @@ public class ExperienceCandidateController {
         do {
             System.out.println("Enter the number of year experiences");
             expInYear = Double.parseDouble(scanner.nextLine());
-        } while (!(expInYear>=0 && expInYear<100));
+        } while (!(expInYear >= 0 && expInYear < 100));
         System.out.println("Enter the professional skills of candidate");
         String proSkill = scanner.nextLine();
-        candidatesList.add(new ExperienceCandidates(id,firstName,lastName,dob,address,phoneNumber,email,candidateType,expInYear,proSkill));
-        experienceCandidatesList.add(new ExperienceCandidates(id,firstName,lastName,dob,address,phoneNumber,email,candidateType,expInYear,proSkill));
-        candidatesList.add(new ExperienceCandidates("E1","Aelbrecht","Stefan",1991,"London",612811,"sas@gmail.com",0,2.5,"acb"));
-        candidatesList.add(new ExperienceCandidates("E2","Aguirre","Eva",1990,"Sao paulo",940394,"eva@asante.com",0,2.5,"abc"));
-        candidatesList.add(new ExperienceCandidates("E3","Ahlgren","Maria",1987,"Paris",682172,"sas@gmail.com",0,2.5,"acb"));
-        candidatesList.add(new ExperienceCandidates("E4","Antošová","Adeleva",1989,"Rio de janero",984933,"sadelave@janeo.com",0,2.5,"abc"));
-        experienceCandidatesList.add(new ExperienceCandidates("E1","Aelbrecht","Stefan",1991,"London",612811,"sas@gmail.com",0,2.5,"acb"));
-        experienceCandidatesList.add(new ExperienceCandidates("E2","Aguirre","Eva",1990,"Sao paulo",940394,"eva@asante.com",0,2.5,"abc"));
-        experienceCandidatesList.add(new ExperienceCandidates("E3","Ahlgren","Maria",1987,"Paris",682172,"sas@gmail.com",0,2.5,"acb"));
-        experienceCandidatesList.add(new ExperienceCandidates("E4","Antošová","Adeleva",1989,"Rio de janero",984933,"sadelave@janeo.com",0,2.5,"abc"));
+        experienceCandidatesList.add(new ExperienceCandidates("E1", "Aelbrecht", "Stefan", 1991, "London", 612811, "sas@gmail.com", 0, 2.5, "acb"));
+        experienceCandidatesList.add(new ExperienceCandidates("E2", "Aguirre", "Eva", 1990, "Sao paulo", 940394, "eva@asante.com", 0, 2.5, "abc"));
+        experienceCandidatesList.add(new ExperienceCandidates("E3", "Ahlgren", "Maria", 1987, "Paris", 682172, "sas@gmail.com", 0, 2.5, "acb"));
+        experienceCandidatesList.add(new ExperienceCandidates("E4", "Antošová", "Adeleva", 1989, "Rio de janero", 984933, "sadelave@janeo.com", 0, 2.5, "abc"));
+        experienceCandidatesList.add(new ExperienceCandidates(id, firstName, lastName, dob, address, phoneNumber, email, candidateType, expInYear, proSkill));
     }
 
-
-    public void displayExperienceCandidate(){
-        experienceCandidateService.displayExperienceCandidate(experienceCandidatesList);
+    //Remove
+    public void removeExperienceCandidate() {
+        System.out.println("Enter the id of candidate would like to remove");
+        String id = scanner.nextLine();
+        experienceCandidateService.removeExperienceCandidateService(id, experienceCandidatesList);
+        displayExperienceCandidate();
     }
 
-    public List<ExperienceCandidates> returnExpCanList() {
+    //Update
+    public void updateExperienceCandidate() {
+        System.out.println("Enter the id of candidate would like to update");
+        String id = scanner.nextLine();
+        experienceCandidateService.updateExperienceCandidatesService(id, experienceCandidatesList);
+    }
+
+    //Display
+    public void displayExperienceCandidate() {
+        System.out.println("===========EXPERIENCE CANDIDATE============");
+        experienceCandidateService.displayExperienceCandidateService(experienceCandidatesList);
+    }
+
+    //ReturnList
+    public static List<ExperienceCandidates> returnExpList() {
         return experienceCandidatesList;
     }
+
+    //Read File
+    public void readCSVExperienceCandidate(){
+        System.out.println("Enter a path to read the file");
+        String path = scanner.nextLine();
+        experienceCandidateService.readCSVExperienceCandidateService(path);
+    }
+
+    //Write File
+    public void writeCSVExperienceCandidate() {
+        System.out.println("Enter a path to write the file");
+        String path = scanner.nextLine();
+        experienceCandidateService.writeCSVExperienceCandidateService(path, experienceCandidatesList);
+        System.out.println("Successful Write!");
+    }
+
 }
 
