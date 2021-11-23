@@ -4,7 +4,9 @@ import java.io.Serializable;
 
 public class Student implements Serializable {
     private int id;
+
     private String name;
+
     private String address;
 
     public Student() {
@@ -41,7 +43,7 @@ public class Student implements Serializable {
     }
 
     @Override
-    public String   toString() {
+    public String toString() {
         return "Student{" +
                 "id=" + id +
                 ", name='" + name + '\'' +

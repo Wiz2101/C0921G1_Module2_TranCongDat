@@ -29,7 +29,7 @@ public class MenuController {
                                     "3.\tUpdate an Experience Candidates\n" +
                                     "4.\tDisplay all Experience Candidates\n" +
                                     "5.\tRead to File\n" +
-                                    "5.\tWrite to File\n"
+                                    "6.\tWrite to File\n"
                     );
                     System.out.println("Please enter your choice: ");
                     subMenuChoice = scanner.nextInt();
@@ -73,7 +73,7 @@ public class MenuController {
                                     "3.\tUpdate a Fresher Candidates\n" +
                                     "4.\tDisplay all Fresher Candidates\n" +
                                     "5.\tRead to File\n" +
-                                    "5.\tWrite to File\n"
+                                    "6.\tWrite to File\n"
                     );
                     System.out.println("Please enter your choice: ");
                     subMenuChoice = scanner.nextInt();
@@ -117,7 +117,7 @@ public class MenuController {
                                     "3.\tUpdate an Intern Candidates\n" +
                                     "4.\tDisplay all Intern Candidates\n" +
                                     "5.\tRead to File\n" +
-                                    "5.\tWrite to File\n"
+                                    "6.\tWrite to File\n"
                     );
                     System.out.println("Please enter your choice: ");
                     subMenuChoice = scanner.nextInt();
