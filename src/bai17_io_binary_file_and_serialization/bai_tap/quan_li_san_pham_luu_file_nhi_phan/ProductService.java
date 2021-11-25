@@ -48,9 +48,8 @@ public class ProductService {
         try {
             fileOutputStream = new FileOutputStream(path);
             objectOutputStream = new ObjectOutputStream(fileOutputStream);
-            for (Product li : productList) {
-                objectOutputStream.writeObject(li);
-            }
+                objectOutputStream.writeObject(productList);
+
             System.out.println("Write Successfully!");
         } catch (IOException e) {
             e.printStackTrace();
@@ -65,6 +64,7 @@ public class ProductService {
     }
 
     public void readFile() throws FileNotFoundException {
+        List<Product> list = new ArrayList<>();
         System.out.println("Enter a path of the file");
         String path = scanner.nextLine();
         FileInputStream fileInputStream = null;
@@ -76,7 +76,7 @@ public class ProductService {
         try {
             fileInputStream = new FileInputStream(file);
             objectInputStream = new ObjectInputStream(fileInputStream);
-            System.out.println(objectInputStream.readObject());
+            list = (List<Product>)objectInputStream.readObject();
         } catch (IOException | ClassNotFoundException e){
             e.printStackTrace();
         } finally {
@@ -86,6 +86,9 @@ public class ProductService {
             } catch (IOException e){
                 e.printStackTrace();
             }
+        }
+        for (Product li:list) {
+            System.out.println(li);
         }
     }
     public void writeFileCSV(){

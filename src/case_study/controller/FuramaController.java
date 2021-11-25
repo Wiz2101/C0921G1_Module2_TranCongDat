@@ -1,8 +1,15 @@
 package case_study.controller;
 
+import case_study.services.CustomerService;
+import case_study.services.EmployeeService;
+import case_study.services.impl.CustomerServiceImpl;
+import case_study.services.impl.EmployeeServiceImpl;
+
 import java.util.Scanner;
 
 public class FuramaController {
+    EmployeeService employeeService = new EmployeeServiceImpl();
+    CustomerService customerService = new CustomerServiceImpl();
     public void displayMainMenu() {
         int input;
         int subInput = 0;
@@ -28,19 +35,13 @@ public class FuramaController {
                         subInput = scanner.nextInt();
                         switch (subInput) {
                             case 1:
-                                System.out.println("---------------------");
-                                System.out.println("Display list employee");
-                                System.out.println("---------------------");
+                                employeeService.display();
                                 break;
                             case 2:
-                                System.out.println("---------------------");
-                                System.out.println("Add new employee");
-                                System.out.println("---------------------");
+                                employeeService.add();
                                 break;
                             case 3:
-                                System.out.println("---------------------");
-                                System.out.println("Edit employee");
-                                System.out.println("---------------------");
+                                employeeService.edit();
                                 break;
                             case 4:
                                 break;
@@ -57,17 +58,14 @@ public class FuramaController {
                         subInput = scanner.nextInt();
                         switch (subInput) {
                             case 1:
-                                System.out.println("---------------------");
-                                System.out.println("Display list customer");
-                                System.out.println("---------------------");
+                                customerService.display();
+                                break;
                             case 2:
-                                System.out.println("---------------------");
-                                System.out.println("Add new customer");
-                                System.out.println("---------------------");
+                                customerService.add();
+                                break;
                             case 3:
-                                System.out.println("---------------------");
-                                System.out.println("Edit customer");
-                                System.out.println("---------------------");
+                                customerService.edit();
+                                break;
                             case 4:
                                 break;
                         }

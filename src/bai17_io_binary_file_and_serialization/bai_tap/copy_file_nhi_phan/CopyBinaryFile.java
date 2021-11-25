@@ -6,7 +6,7 @@ import java.util.List;
 
 public class CopyBinaryFile {
     static final String SOURCE_PATH = "src/bai17_io_binary_file_and_serialization/bai_tap/copy_file_nhi_phan/productResult.csv";
-    static final String TARGET_PATH = "src/bai17_io_binary_file_and_serialization/bai_tap/copy_file_nhi_phan/productNew.csv";
+    static final String TARGET_PATH = "src/bai17_io_binary_file_and_serialization/bai_tap/copy_file_nhi_phan/result.dat";
 
     public List<Product> readBinary() {
         List<Product> list = new ArrayList<>();

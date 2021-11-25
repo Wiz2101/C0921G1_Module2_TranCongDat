@@ -7,9 +7,10 @@ public class Main {
     public static void main(String[] args) {
         CopyBinaryFile copyBinaryFile = new CopyBinaryFile();
         List<Product> productList = new ArrayList<>();
+        productList = copyBinaryFile.readBinary();
         productList.add(new Product("1","A"));
         productList.add(new Product("2","B"));
         productList.add(new Product("3","C"));
-        copyBinaryFile.writeBinary(copyBinaryFile.readBinary());
+        copyBinaryFile.writeBinary(productList);
     }
 }
