@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="CodeGym">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../../../../../.." />
+      <root url="jar://$PROJECT_DIR$/codegym-file-utils.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
