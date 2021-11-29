@@ -6,11 +6,11 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         CopyBinaryFile copyBinaryFile = new CopyBinaryFile();
-        List<Product> productList = new ArrayList<>();
-        productList = copyBinaryFile.readBinary();
-        productList.add(new Product("1","A"));
-        productList.add(new Product("2","B"));
-        productList.add(new Product("3","C"));
-        copyBinaryFile.writeBinary(productList);
+        List<Products> productsList = new ArrayList<>();
+        productsList = copyBinaryFile.readBinary();
+        productsList.add(new Products("1","A"));
+        productsList.add(new Products("2","B"));
+        productsList.add(new Products("3","C"));
+        copyBinaryFile.writeBinary(productsList);
     }
 }

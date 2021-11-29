@@ -2,14 +2,14 @@ package bai17_io_binary_file_and_serialization.bai_tap.copy_file_nhi_phan;
 
 import java.io.Serializable;
 
-public class Product implements Serializable {
+public class Products implements Serializable {
     private String id;
     private String name;
 
-    public Product() {
+    public Products() {
     }
 
-    public Product(String id, String name) {
+    public Products(String id, String name) {
         this.id = id;
         this.name = name;
     }

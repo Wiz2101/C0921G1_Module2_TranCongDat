@@ -8,8 +8,8 @@ public class CopyBinaryFile {
     static final String SOURCE_PATH = "src/bai17_io_binary_file_and_serialization/bai_tap/copy_file_nhi_phan/productResult.csv";
     static final String TARGET_PATH = "src/bai17_io_binary_file_and_serialization/bai_tap/copy_file_nhi_phan/result.dat";
 
-    public List<Product> readBinary() {
-        List<Product> list = new ArrayList<>();
+    public List<Products> readBinary() {
+        List<Products> list = new ArrayList<>();
         FileInputStream fileInputStream = null;
         ObjectInputStream objectInputStream = null;
         File file = new File(SOURCE_PATH);
@@ -17,7 +17,7 @@ public class CopyBinaryFile {
             fileInputStream = new FileInputStream(file);
             if (fileInputStream.available() != 0) {
                 objectInputStream = new ObjectInputStream(fileInputStream);
-                list = (List<Product>) objectInputStream.readObject();
+                list = (List<Products>) objectInputStream.readObject();
             }
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -33,24 +33,24 @@ public class CopyBinaryFile {
     }
 
 
-            public void writeBinary (List <bai17_io_binary_file_and_serialization.bai_tap.copy_file_nhi_phan.Product> list) {
-                FileOutputStream fileOutputStream = null;
-                ObjectOutputStream objectOutputStream = null;
-                try {
-                    File file = new File(TARGET_PATH);
-                    fileOutputStream = new FileOutputStream(file);
-                    objectOutputStream = new ObjectOutputStream(fileOutputStream);
-                    objectOutputStream.writeObject(list);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } finally {
-                    try {
-                        fileOutputStream.close();
-                        objectOutputStream.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
+    public void writeBinary(List<Products> list) {
+        FileOutputStream fileOutputStream = null;
+        ObjectOutputStream objectOutputStream = null;
+        try {
+            File file = new File(TARGET_PATH);
+            fileOutputStream = new FileOutputStream(file);
+            objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            objectOutputStream.writeObject(list);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                fileOutputStream.close();
+                objectOutputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-
         }
+    }
+
+}
