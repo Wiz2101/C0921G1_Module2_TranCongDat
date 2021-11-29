@@ -2,14 +2,19 @@ package case_study.controller;
 
 import case_study.services.CustomerService;
 import case_study.services.EmployeeService;
+import case_study.services.FacilityService;
 import case_study.services.impl.CustomerServiceImpl;
 import case_study.services.impl.EmployeeServiceImpl;
+import case_study.services.impl.FaciltyServiceImpl;
+import case_study.services.impl.EmployeeWriteReadServiceImpl;
 
 import java.util.Scanner;
 
 public class FuramaController {
     EmployeeService employeeService = new EmployeeServiceImpl();
     CustomerService customerService = new CustomerServiceImpl();
+    FacilityService facilityService = new FaciltyServiceImpl();
+    EmployeeWriteReadServiceImpl writeReadService = new EmployeeWriteReadServiceImpl();
     public void displayMainMenu() {
         int input;
         int subInput = 0;
@@ -76,23 +81,26 @@ public class FuramaController {
                         System.out.println("1\tDisplay list facility\n" +
                                 "2\tAdd new facility\n" +
                                 "3\tDisplay list facility maintenance\n" +
-                                "4\tReturn main menu\n");
+                                "4\tEdit facility\n" +
+                                "5\tReturn main menu\n");
                         System.out.println("Please enter your choice: ");
                         subInput = scanner.nextInt();
                         switch (subInput) {
                             case 1:
-                                System.out.println("---------------------");
-                                System.out.println("Display list facility");
-                                System.out.println("---------------------");
+                                facilityService.display();
+                                break;
                             case 2:
-                                System.out.println("---------------------");
-                                System.out.println("Add new facility");
-                                System.out.println("---------------------");
+                                facilityService.add();
+                                break;
                             case 3:
                                 System.out.println("---------------------");
                                 System.out.println("Display list facility maintenance");
                                 System.out.println("---------------------");
+                                break;
                             case 4:
+                                facilityService.edit();
+                                break;
+                            case 5:
                                 break;
                         }
                     } while (subInput != 4);
@@ -101,7 +109,7 @@ public class FuramaController {
                     do {
                         System.out.println("1.\tAdd new booking\n" +
                                 "2.\tDisplay list booking\n" +
-                                "3.\tCreate new constracts\n" +
+                                "3.\tCreate new contract\n" +
                                 "4.\tDisplay list contracts\n" +
                                 "5.\tEdit contracts\n" +
                                 "6.\tReturn main menu\n");

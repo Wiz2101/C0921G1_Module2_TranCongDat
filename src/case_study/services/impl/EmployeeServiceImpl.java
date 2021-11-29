@@ -2,20 +2,20 @@ package case_study.services.impl;
 
 import case_study.models.Employee;
 import case_study.services.EmployeeService;
+import case_study.utils.BirthdayException;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class EmployeeServiceImpl implements EmployeeService {
     Employee employee = new Employee();
     Scanner scanner = new Scanner(System.in);
-    static List<Employee> employeeList = new ArrayList<>();
+    public static List<Employee> employeeList;
 
     static {
-        employeeList.add(new Employee("NV01", "Nguyen Van A", "01/01/96", 205123456, "0905123456", "NguyenA@gmail.com", "University", "Receptionist", 5000000));
-        employeeList.add(new Employee("NV02", "Nguyen Van B", "03/03/96", 205456789, "0905123987", "NguyenB@gmail.com", "University", "Executive", 6500000));
-        employeeList.add(new Employee("NV03", "Nguyen Van C", "02/02/96", 205123789, "0905321456", "NguyenC@gmail.com", "College", "Waiter", 4500000));
+        employeeList = EmployeeWriteReadServiceImpl.convertStringToEmployee();
     }
 
     @Override
@@ -24,19 +24,31 @@ public class EmployeeServiceImpl implements EmployeeService {
         String id = scanner.nextLine();
         System.out.println("Enter the full name");
         String name = scanner.nextLine();
-        System.out.println("Enter the birthday");
-        String dob = scanner.nextLine();
+        String dob = "";
+        while (true) {
+            try {
+                System.out.println("Enter the birthday");
+                dob = scanner.nextLine();
+                if (!(Pattern.compile("^[0-9]{2}/[0-9]{2}/[0-9]{4}$").matcher(dob).matches())) {
+                    throw new BirthdayException();
+                }
+                break;
+            } catch (BirthdayException b) {
+                System.err.println(b.getMessage());
+                b.printStackTrace();
+            }
+        }
         System.out.println("Enter the idCard");
-        Long idCard = Long.parseLong(scanner.nextLine());
+        long idCard = Long.parseLong(scanner.nextLine());
         System.out.println("Enter the phone number");
         String phoneNum = scanner.nextLine();
         System.out.println("Enter the email");
         String email = scanner.nextLine();
         System.out.println("Please choose 1 in 4 of degree as below:");
-        System.out.println("Intermediate");
-        System.out.println("College");
-        System.out.println("University");
-        System.out.println("Graduate");
+        System.out.println("1. Intermediate");
+        System.out.println("2. College");
+        System.out.println("3. University");
+        System.out.println("4. Graduate");
         System.out.println("Enter your choice");
         int choiceDeg = Integer.parseInt(scanner.nextLine());
         switch (choiceDeg) {
@@ -89,6 +101,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         System.out.println("Enter the salary");
         int salary = Integer.parseInt(scanner.nextLine());
         employeeList.add(new Employee(id, name, dob, idCard, phoneNum, email, employee.getDegree(), employee.getPosition(), salary));
+        EmployeeWriteReadServiceImpl.writeCSV(employeeList,true);
     }
 
     @Override

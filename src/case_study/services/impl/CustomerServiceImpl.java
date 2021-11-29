@@ -14,9 +14,7 @@ public class CustomerServiceImpl implements CustomerService {
     static List<Customer> customerList = new LinkedList<>();
 
     static {
-        customerList.add(new Customer("KH01", "Tran Van A", "04/05/90",212123123,"0913123123","TranA@gmail.com","Silver"));
-        customerList.add(new Customer("KH02", "Tran Van B", "04/05/90",212456323,"0913234312","TranB@gmail.com","Gold"));
-        customerList.add(new Customer("KH03", "Tran Van C", "04/05/90",212866234,"0913887123","TranC@gmail.com","Member"));
+        CustomerWriteReadServiceImpl.convertStringToCustomer();
     }
     @Override
     public void add() {
@@ -61,6 +59,7 @@ public class CustomerServiceImpl implements CustomerService {
                 System.out.println("Please choose from 0-5");
         }
         customerList.add(new Customer(id,name,dob,idCard,phoneNum,email,customer.getCustomerType()));
+        CustomerWriteReadServiceImpl.writeCSV(customerList, true);
     }
 
     @Override

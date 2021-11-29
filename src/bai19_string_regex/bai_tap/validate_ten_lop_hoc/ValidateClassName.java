@@ -1,4 +1,4 @@
-package bai18_threading.bai_tap.validate_ten_lop_hoc;
+package bai19_string_regex.bai_tap.validate_ten_lop_hoc;
 
 import java.util.Scanner;
 import java.util.regex.Pattern;
