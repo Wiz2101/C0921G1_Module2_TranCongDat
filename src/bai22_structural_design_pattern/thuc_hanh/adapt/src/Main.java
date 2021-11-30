@@ -1,3 +1,5 @@
+package bai22_structural_design_pattern.thuc_hanh.adapt.src;
+
 import java.util.Scanner;
 
 public class Main {

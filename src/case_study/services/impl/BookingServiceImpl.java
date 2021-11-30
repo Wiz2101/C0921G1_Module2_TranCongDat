@@ -3,16 +3,20 @@ package case_study.services.impl;
 import case_study.models.Booking;
 import case_study.services.BookingService;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class BookingServiceImpl implements BookingService {
-    List<Booking> bookingList = new ArrayList<>();
+    static SortedSet<Booking> bookingList = new TreeSet<>(new BookingComparator());
+
+     static {
+        BookingWriteReadServiceImpl.convertStringToEmployee();
+    }
+
     Scanner scanner = new Scanner(System.in);
+
     @Override
     public void display() {
-        for(Booking booking:bookingList){
+        for (Booking booking : bookingList) {
             System.out.println(booking);
         }
     }
@@ -31,7 +35,7 @@ public class BookingServiceImpl implements BookingService {
         String serviceName = scanner.nextLine();
         System.out.println("Please enter service type");
         String serviceType = scanner.nextLine();
-        bookingList.add(new Booking(bookingNo,startDate,endDate,customerId,serviceName,serviceType));
+        bookingList.add(new Booking(bookingNo, startDate, endDate, customerId, serviceName, serviceType));
     }
 
     @Override
@@ -43,4 +47,6 @@ public class BookingServiceImpl implements BookingService {
     public void findByAll() {
 
     }
+
+
 }
