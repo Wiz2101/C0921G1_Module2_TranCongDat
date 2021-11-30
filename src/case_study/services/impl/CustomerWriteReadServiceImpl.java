@@ -4,6 +4,7 @@ import case_study.models.Customer;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class CustomerWriteReadServiceImpl {
@@ -65,7 +66,7 @@ public class CustomerWriteReadServiceImpl {
 
     public static List<Customer> convertStringToCustomer(){
         List<String>stringList = readCSV();
-        List<Customer> customerList = new ArrayList<>();
+        List<Customer> customerList = new LinkedList<>();
         String[] customer;
         for (String st:stringList){
             customer = st.split(",");

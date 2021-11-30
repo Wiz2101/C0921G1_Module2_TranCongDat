@@ -1,28 +1,27 @@
 package case_study.services.impl;
 
-import case_study.models.Booking;
-import case_study.models.Employee;
+import case_study.models.Contract;
+import case_study.models.Customer;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.SortedSet;
-import java.util.TreeSet;
 
-public class BookingWriteReadServiceImpl {
-    public static final String BOOKING_SOURCE = "src/case_study/data/Booking.csv";
-    public static final String BOOKING_DESTINATION = "src/case_study/data/Booking.csv";
+public class ContractWriteReadServiceImpl {
+    static final String CONTRACT_SOURCE = "src/case_study/data/Contract.csv";
+    static final String CONTRACT_DESTINATION = "src/case_study/data/Contract.csv";
     static final String COMMA = ",";
-    public static void writeCSV(SortedSet<Booking> list, boolean append) {
+
+    public static void writeCSV(List<Contract> list, boolean append) {
         FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
 
-        File file = new File(BOOKING_DESTINATION);
+        File file = new File(CONTRACT_DESTINATION);
         try {
             fileWriter = new FileWriter(file);
             bufferedWriter = new BufferedWriter(fileWriter);
-            for (Booking li : list) {
-                bufferedWriter.write(li.getBookingID() + COMMA + li.getStartDate() + COMMA + li.getEndDate() + COMMA + li.getCustomerID() + COMMA + li.getServiceName() + COMMA + li.getServiceType());
+            for (Contract li : list) {
+                bufferedWriter.write(li.getContractNo() + COMMA + li.getBookingNo() + COMMA + li.getDeposit() + COMMA + li.getTotalPayment() + COMMA + li.getCustomerNo());
                 bufferedWriter.newLine();
             }
         } catch (IOException e) {
@@ -41,7 +40,7 @@ public class BookingWriteReadServiceImpl {
 
     public static List<String> readCSV() {
         List<String> stringList = new ArrayList<>();
-        File file = new File(BOOKING_SOURCE);
+        File file = new File(CONTRACT_SOURCE);
         FileReader fileReader = null;
         BufferedReader bufferedReader = null;
         try{
@@ -64,14 +63,15 @@ public class BookingWriteReadServiceImpl {
         }
         return stringList;
     }
-    public static SortedSet<Booking> convertStringToBooking(){
-        List<String> stringList = readCSV();
-        SortedSet<Booking> bookingList = new TreeSet<>(new BookingComparator());
-        String[] booking;
+
+    public static List<Contract> convertStringToContract(){
+        List<String>stringList = readCSV();
+        List<Contract> contractList = new ArrayList<>();
+        String[] contract;
         for (String st:stringList){
-            booking = st.split(",");
-            bookingList.add(new Booking(booking[0],booking[1],booking[2],booking[3],booking[4],booking[5]));
+            contract = st.split(",");
+            contractList.add(new Contract(contract[0],contract[1],Integer.parseInt(contract[2]),Integer.parseInt(contract[3]),contract[4]));
         }
-        return bookingList;
+        return contractList;
     }
 }

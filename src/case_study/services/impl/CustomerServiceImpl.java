@@ -14,7 +14,7 @@ public class CustomerServiceImpl implements CustomerService {
     static List<Customer> customerList = new LinkedList<>();
 
     static {
-        CustomerWriteReadServiceImpl.convertStringToCustomer();
+        customerList = CustomerWriteReadServiceImpl.convertStringToCustomer();
     }
     @Override
     public void add() {

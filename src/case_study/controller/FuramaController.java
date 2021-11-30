@@ -1,12 +1,7 @@
 package case_study.controller;
 
-import case_study.services.CustomerService;
-import case_study.services.EmployeeService;
-import case_study.services.FacilityService;
-import case_study.services.impl.CustomerServiceImpl;
-import case_study.services.impl.EmployeeServiceImpl;
-import case_study.services.impl.FaciltyServiceImpl;
-import case_study.services.impl.EmployeeWriteReadServiceImpl;
+import case_study.services.*;
+import case_study.services.impl.*;
 
 import java.util.Scanner;
 
@@ -14,7 +9,8 @@ public class FuramaController {
     EmployeeService employeeService = new EmployeeServiceImpl();
     CustomerService customerService = new CustomerServiceImpl();
     FacilityService facilityService = new FaciltyServiceImpl();
-    EmployeeWriteReadServiceImpl writeReadService = new EmployeeWriteReadServiceImpl();
+    BookingService bookingService = new BookingServiceImpl();
+    ContractService contractService = new ContractServiceImpl();
     public void displayMainMenu() {
         int input;
         int subInput = 0;
@@ -117,25 +113,20 @@ public class FuramaController {
                         subInput = scanner.nextInt();
                         switch (subInput) {
                             case 1:
-                                System.out.println("---------------------");
-                                System.out.println("Add new booking");
-                                System.out.println("---------------------");
+                                bookingService.add();
+                                break;
                             case 2:
-                                System.out.println("---------------------");
-                                System.out.println("Display list booking");
-                                System.out.println("---------------------");
+                                bookingService.display();
+                                break;
                             case 3:
-                                System.out.println("---------------------");
-                                System.out.println("Create new contracts");
-                                System.out.println("---------------------");
+                                contractService.add();
+                                break;
                             case 4:
-                                System.out.println("---------------------");
-                                System.out.println("Display list contracts");
-                                System.out.println("---------------------");
+                                contractService.display();
+                                break;
                             case 5:
-                                System.out.println("---------------------");
-                                System.out.println("Edit contracts");
-                                System.out.println("---------------------");
+                                contractService.edit();
+                                break;
                             case 6:
                                 break;
                         }
