@@ -4,9 +4,7 @@ import case_study.models.*;
 import case_study.services.FacilityService;
 import com.sun.scenario.effect.impl.sw.java.JSWColorAdjustPeer;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 import java.util.regex.Pattern;
 
 public class FaciltyServiceImpl implements FacilityService {
@@ -391,8 +389,20 @@ public class FaciltyServiceImpl implements FacilityService {
         }
     }
 
-    @Override
-    public void findByAll() {
-
+    public void displayMaintain(){
+        List<Booking> maintainceList = new ArrayList<>();
+        int count = 0;
+        System.out.println("Enter the current month: ");
+        String month = scanner.nextLine();
+        for (Booking bo:BookingServiceImpl.bookingList){
+            if (month.equals(bo.getStartDate().substring(3,5))){
+                maintainceList.add(bo);
+                count++;
+            }
+        }
+        System.out.println("The total booking in this month: " + count);
+        for (Booking mt:maintainceList){
+            System.out.println(mt);
+        }
     }
 }

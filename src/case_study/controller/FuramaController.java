@@ -11,6 +11,7 @@ public class FuramaController {
     FacilityService facilityService = new FaciltyServiceImpl();
     BookingService bookingService = new BookingServiceImpl();
     ContractService contractService = new ContractServiceImpl();
+    PromotionServiceImpl promotionService = new PromotionServiceImpl();
     public void displayMainMenu() {
         int input;
         int subInput = 0;
@@ -89,9 +90,7 @@ public class FuramaController {
                                 facilityService.add();
                                 break;
                             case 3:
-                                System.out.println("---------------------");
-                                System.out.println("Display list facility maintenance");
-                                System.out.println("---------------------");
+                                facilityService.displayMaintain();
                                 break;
                             case 4:
                                 facilityService.edit();
@@ -141,13 +140,11 @@ public class FuramaController {
                         subInput = scanner.nextInt();
                         switch (subInput) {
                             case 1:
-                                System.out.println("---------------------");
-                                System.out.println("Display list customers use service");
-                                System.out.println("---------------------");
+                                promotionService.displayCustomerListInYear();
+                                break;
                             case 2:
-                                System.out.println("---------------------");
-                                System.out.println("Display list customers get voucher");
-                                System.out.println("---------------------");
+                                promotionService.getVoucher();
+                                break;
                             case 3:
                                 break;
                         }

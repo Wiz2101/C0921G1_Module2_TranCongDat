@@ -112,9 +112,4 @@ public class ContractServiceImpl implements ContractService {
         }
         display();
     }
-
-    @Override
-    public void findByAll() {
-
-    }
 }

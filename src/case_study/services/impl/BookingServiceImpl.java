@@ -105,11 +105,4 @@ public class BookingServiceImpl implements BookingService {
         }
         display();
     }
-
-    @Override
-    public void findByAll() {
-
-    }
-
-
 }

@@ -236,8 +236,5 @@ public class EmployeeServiceImpl implements EmployeeService {
         display();
     }
 
-    @Override
-    public void findByAll() {
 
-    }
 }

@@ -156,9 +156,4 @@ public class CustomerServiceImpl implements CustomerService {
         }
         display();
     }
-
-    @Override
-    public void findByAll(){
-
-    }
 }
