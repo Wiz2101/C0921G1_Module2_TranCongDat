@@ -121,10 +121,11 @@ public class FuramaController {
                                 try {
                                     System.out.println("1.\tAdd new booking\n" +
                                             "2.\tDisplay list booking\n" +
-                                            "3.\tCreate new contract\n" +
-                                            "4.\tDisplay list contracts\n" +
-                                            "5.\tEdit contracts\n" +
-                                            "6.\tReturn main menu\n");
+                                            "3.\tEdit booking\n" +
+                                            "4.\tCreate new contract\n" +
+                                            "5.\tDisplay list contracts\n" +
+                                            "6.\tEdit contracts\n" +
+                                            "7.\tReturn main menu\n");
                                     System.out.println("Please enter your choice: ");
                                     subInput = Integer.parseInt(scanner.nextLine());
                                     switch (subInput) {
@@ -135,15 +136,18 @@ public class FuramaController {
                                             bookingService.display();
                                             break;
                                         case 3:
-                                            contractService.add();
+                                            bookingService.edit();
                                             break;
                                         case 4:
-                                            contractService.display();
+                                            contractService.add();
                                             break;
                                         case 5:
-                                            contractService.edit();
+                                            contractService.display();
                                             break;
                                         case 6:
+                                            contractService.edit();
+                                            break;
+                                        case 7:
                                             break;
                                     }
                                 } catch (Exception e) {

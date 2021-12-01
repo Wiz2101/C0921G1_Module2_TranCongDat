@@ -29,87 +29,102 @@ public class ContractServiceImpl implements ContractService {
 
     @Override
     public void add() {
-        Booking booking = bookingQueue.peek();
-        boolean isExit = true;
-        for (Booking que : bookingQueue) {
-            for (Contract co : contractList) {
-                if (!(que.getBookingID().equals(co.getBookingNo()))) {
-                    isExit = false;
-                    continue;
-                } else {
-                    isExit = true;
-                    break;
+        while (true) {
+            try {
+                Booking booking = bookingQueue.peek();
+                boolean isExit = true;
+                for (Booking que : bookingQueue) {
+                    for (Contract co : contractList) {
+                        if (!(que.getBookingID().equals(co.getBookingNo()))) {
+                            isExit = false;
+                            continue;
+                        } else {
+                            isExit = true;
+                            break;
+                        }
+                    }
+                    if (!isExit) {
+                        booking = que;
+                        break;
+                    }
                 }
-            }
-            if (!isExit) {
-                booking = que;
-                break;
+
+                System.out.println("Entery the contract ID");
+                String contractID = scanner.nextLine();
+                String customerID = booking.getCustomerID();
+                System.out.println("Customer ID: " + customerID);
+                System.out.println("Enter the deposit");
+                int deposit = Integer.parseInt(scanner.nextLine());
+                System.out.println("Enter the fully payment");
+                int fullyPayment = Integer.parseInt(scanner.nextLine());
+                String bookingID = booking.getBookingID();
+                System.out.println("Booking ID: " + bookingID);
+                contractList.add(new Contract(contractID, bookingID, deposit, fullyPayment, customerID));
+                if (contractID.equals("") | bookingID.equals("") | deposit == 0 | fullyPayment == 0 | customerID.equals("")) {
+                    throw new Exception();
+                }
+                ContractWriteReadServiceImpl.writeCSV(contractList, true);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
-
-        System.out.println("Entery the contract ID");
-        String contractID = scanner.nextLine();
-        String customerID = booking.getCustomerID();
-        System.out.println("Customer ID: " + customerID);
-        System.out.println("Enter the deposit");
-        int deposit = Integer.parseInt(scanner.nextLine());
-        System.out.println("Enter the fully payment");
-        int fullyPayment = Integer.parseInt(scanner.nextLine());
-        String bookingID = booking.getBookingID();
-        System.out.println("Booking ID: " + bookingID);
-        contractList.add(new Contract(contractID, bookingID, deposit, fullyPayment, customerID));
-        ContractWriteReadServiceImpl.writeCSV(contractList, true);
     }
 
 
     @Override
     public void edit() {
-        System.out.println("Enter the Contract ID would like to edit");
-        String id = scanner.nextLine();
-        for (Contract co : contractList) {
-            if (co.getContractNo().toLowerCase().equals(id.toLowerCase())) {
-                System.out.println("Please choose data would like to edit:");
-                System.out.println("1. Contract Id");
-                System.out.println("2. Booking number");
-                System.out.println("3. Deposit");
-                System.out.println("4. Total Payment");
-                System.out.println("5. Customer Id");
-                System.out.println("0. Exit");
-                System.out.println("Please enter your choice");
-                int choice = Integer.parseInt(scanner.nextLine());
-                switch (choice) {
-                    case 1:
-                        System.out.println("Enter the updated Contract ID");
-                        String newId = scanner.nextLine();
-                        co.setContractNo(newId);
-                        break;
-                    case 2:
-                        System.out.println("Enter the updated Booking ID");
-                        String newBookingID = scanner.nextLine();
-                        co.setBookingNo(newBookingID);
-                        break;
-                    case 3:
-                        System.out.println("Enter the updated Deposit");
-                        int newDeposit = Integer.parseInt(scanner.nextLine());
-                        co.setDeposit(newDeposit);
-                        break;
-                    case 4:
-                        System.out.println("Enter the updated Total Payment");
-                        int newPayment = Integer.parseInt(scanner.nextLine());
-                        co.setTotalPayment(newPayment);
-                        break;
-                    case 5:
-                        System.out.println("Enter the updated Customer ID");
-                        String newCustomerID = scanner.nextLine();
-                        co.setCustomerNo(newCustomerID);
-                        break;
-                    case 0:
-                        break;
-                    default:
-                        System.out.println("Please choose from 0-5");
+        while (true) {
+            try {
+                System.out.println("Enter the Contract ID would like to edit");
+                String id = scanner.nextLine();
+                for (Contract co : contractList) {
+                    if (co.getContractNo().toLowerCase().equals(id.toLowerCase())) {
+                        System.out.println("Please choose data would like to edit:");
+                        System.out.println("1. Contract Id");
+                        System.out.println("2. Booking number");
+                        System.out.println("3. Deposit");
+                        System.out.println("4. Total Payment");
+                        System.out.println("5. Customer Id");
+                        System.out.println("0. Exit");
+                        System.out.println("Please enter your choice");
+                        int choice = Integer.parseInt(scanner.nextLine());
+                        switch (choice) {
+                            case 1:
+                                System.out.println("Enter the updated Contract ID");
+                                String newId = scanner.nextLine();
+                                co.setContractNo(newId);
+                                break;
+                            case 2:
+                                System.out.println("Enter the updated Booking ID");
+                                String newBookingID = scanner.nextLine();
+                                co.setBookingNo(newBookingID);
+                                break;
+                            case 3:
+                                System.out.println("Enter the updated Deposit");
+                                int newDeposit = Integer.parseInt(scanner.nextLine());
+                                co.setDeposit(newDeposit);
+                                break;
+                            case 4:
+                                System.out.println("Enter the updated Total Payment");
+                                int newPayment = Integer.parseInt(scanner.nextLine());
+                                co.setTotalPayment(newPayment);
+                                break;
+                            case 5:
+                                System.out.println("Enter the updated Customer ID");
+                                String newCustomerID = scanner.nextLine();
+                                co.setCustomerNo(newCustomerID);
+                                break;
+                            case 0:
+                                break;
+                            default:
+                                System.out.println("Please choose from 0-5");
+                        }
+                    }
                 }
+                display();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
-        display();
     }
 }
