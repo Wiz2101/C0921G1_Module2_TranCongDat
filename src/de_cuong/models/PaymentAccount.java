@@ -1,7 +1,7 @@
 package de_cuong.models;
 
 public class PaymentAccount extends BankAccount{
-    int cardNo;
+    long cardNo;
     long moneyAccount;
 
     public PaymentAccount() {
@@ -12,13 +12,13 @@ public class PaymentAccount extends BankAccount{
         this.moneyAccount = moneyAccount;
     }
 
-    public PaymentAccount(String idAccount, String accountCode, String accountName, String accountOpenedDate, int cardNo, long moneyAccount) {
+    public PaymentAccount(long idAccount, String accountCode, String accountName, String accountOpenedDate, long cardNo, long moneyAccount) {
         super(idAccount, accountCode, accountName, accountOpenedDate);
         this.cardNo = cardNo;
         this.moneyAccount = moneyAccount;
     }
 
-    public int getCardNo() {
+    public long getCardNo() {
         return cardNo;
     }
 
@@ -38,7 +38,14 @@ public class PaymentAccount extends BankAccount{
     public String toString() {
         return "PaymentAccount{" +
                 super.toString() +
-                "cardNo=" + cardNo +
-                ", moneyAccount=" + moneyAccount;
+                ", cardNo=" + cardNo +
+                ", moneyAccount=" + moneyAccount +
+                '}';
+    }
+
+    public String toStringAttribute() {
+        return super.toString() +
+                "," + cardNo +
+                "," + moneyAccount;
     }
 }

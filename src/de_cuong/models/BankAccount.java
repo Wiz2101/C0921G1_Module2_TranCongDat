@@ -1,7 +1,7 @@
 package de_cuong.models;
 
 public abstract class BankAccount {
-    String idAccount;
+    long idAccount;
     String accountCode;
     String accountName;
     String accountOpenedDate;
@@ -9,18 +9,18 @@ public abstract class BankAccount {
     public BankAccount() {
     }
 
-    public BankAccount(String idAccount, String accountCode, String accountName, String accountOpenedDate) {
+    public BankAccount(long idAccount, String accountCode, String accountName, String accountOpenedDate) {
         this.idAccount = idAccount;
         this.accountCode = accountCode;
         this.accountName = accountName;
         this.accountOpenedDate = accountOpenedDate;
     }
 
-    public String getIdAccount() {
+    public long getIdAccount() {
         return idAccount;
     }
 
-    public void setIdAccount(String idAccount) {
+    public void setIdAccount(long idAccount) {
         this.idAccount = idAccount;
     }
 
@@ -50,9 +50,17 @@ public abstract class BankAccount {
 
     @Override
     public String toString() {
-        return  "idAccount='" + idAccount + '\'' +
+        return
+                "idAccount=" + idAccount +
                 ", accountCode='" + accountCode + '\'' +
                 ", accountName='" + accountName + '\'' +
-                ", accountOpenedDate='" + accountOpenedDate + '\'';
+                ", accountOpenedDate='" + accountOpenedDate;
+    }
+
+    public String toStringAttribute() {
+        return  idAccount +
+                "," + accountCode +
+                "," + accountName +
+                "," + accountOpenedDate;
     }
 }

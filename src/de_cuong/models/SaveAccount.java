@@ -16,7 +16,7 @@ public class SaveAccount extends BankAccount {
         this.period = period;
     }
 
-    public SaveAccount(String idAccount, String accountCode, String accountName, String accountOpenedDate, long moneyAmount, String savedDate, double interestRate, int period) {
+    public SaveAccount(long idAccount, String accountCode, String accountName, String accountOpenedDate, long moneyAmount, String savedDate, double interestRate, int period) {
         super(idAccount, accountCode, accountName, accountOpenedDate);
         this.moneyAmount = moneyAmount;
         this.savedDate = savedDate;
@@ -60,10 +60,18 @@ public class SaveAccount extends BankAccount {
     public String toString() {
         return "SaveAccount{" +
                 super.toString() +
-                "moneyAmount=" + moneyAmount +
+                ", moneyAmount=" + moneyAmount +
                 ", savedDate='" + savedDate + '\'' +
                 ", interestRate=" + interestRate +
                 ", period=" + period +
                 '}';
+    }
+
+    public String toStringAttribute() {
+        return super.toStringAttribute() +
+                "," + moneyAmount +
+                "," + savedDate +
+                "," + interestRate +
+                "," + period;
     }
 }
