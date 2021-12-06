@@ -1,4 +1,4 @@
-package case_study.utils;
+package case_study.exception;
 
 import java.util.Scanner;
 import java.util.regex.Pattern;

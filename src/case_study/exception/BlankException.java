@@ -1,4 +1,4 @@
-package case_study.utils;
+package case_study.exception;
 
 public class BlankException extends Exception{
     public BlankException() {
