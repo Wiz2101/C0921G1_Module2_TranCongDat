@@ -71,7 +71,7 @@ public class EmployeeWriteReadServiceImpl {
         String[] employee;
         for (String st:stringList){
             employee = st.split(",");
-            employeeList.add(new Employee(employee[0],employee[1],employee[2],Long.parseLong(employee[3]),employee[4],employee[5],employee[6],employee[7], Integer.parseInt(employee[8])));
+            employeeList.add(new Employee(employee[0],employee[1],employee[2],employee[3],employee[4],employee[5],employee[6],employee[7], Integer.parseInt(employee[8])));
         }
         return employeeList;
     }

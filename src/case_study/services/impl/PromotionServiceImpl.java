@@ -2,6 +2,7 @@ package case_study.services.impl;
 
 import case_study.models.Booking;
 import case_study.models.Customer;
+import case_study.validates.Validates;
 
 import java.util.*;
 
@@ -44,7 +45,7 @@ public class PromotionServiceImpl {
                 voucherStack.clear();
                 int totalVoucher;
                 System.out.println("Enter the current month");
-                String currentMonth = scanner.nextLine();
+                String currentMonth = Validates.number(scanner.nextLine());
                 for (Booking boVoucher : bookingSet) {
                     if (currentMonth.equals(boVoucher.getStartDate().substring(3, 5))) {
                         bookingStack.add(boVoucher);
@@ -53,17 +54,17 @@ public class PromotionServiceImpl {
                 do {
                     System.out.println("The number of customer in current month: " + bookingStack.size());
                     System.out.println("Enter the quantity of voucher 50%");
-                    int voucher50 = Integer.parseInt(scanner.nextLine());
+                    int voucher50 = Integer.parseInt(Validates.number(scanner.nextLine()));
                     for (int i = 1; i <= voucher50; i++) {
                         voucherStack.add("Voucher 50%");
                     }
                     System.out.println("Enter the quantity of voucher 20%");
-                    int voucher20 = Integer.parseInt(scanner.nextLine());
+                    int voucher20 = Integer.parseInt(Validates.number(scanner.nextLine()));
                     for (int i = 1; i <= voucher20; i++) {
                         voucherStack.add("Voucher 20%");
                     }
                     System.out.println("Enter the quantity of voucher 10%");
-                    int voucher10 = Integer.parseInt(scanner.nextLine());
+                    int voucher10 = Integer.parseInt(Validates.number(scanner.nextLine()));
                     for (int i = 1; i <= voucher10; i++) {
                         voucherStack.add("Voucher 10%");
                     }

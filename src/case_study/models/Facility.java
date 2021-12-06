@@ -86,17 +86,11 @@ public abstract class Facility {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Facility facility = (Facility) o;
-        return
-                Double.compare(facility.usableArea, usableArea) == 0 &&
-                        rentalCost == facility.rentalCost &&
-                        maxCapacity == facility.maxCapacity &&
-                        Objects.equals(serviceID, facility.serviceID) &&
-                        Objects.equals(serviceName, facility.serviceName) &&
-                        Objects.equals(rentalType, facility.rentalType);
+        return serviceID.equals(facility.serviceID);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(serviceID, serviceName, usableArea, rentalCost, maxCapacity, rentalType);
+        return Objects.hash(serviceID);
     }
 }

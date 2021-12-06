@@ -6,14 +6,14 @@ public abstract class Person {
     private String id;
     private String fullName;
     private String dob;
-    private long idCard;
+    private String idCard;
     private String phoneNumber;
     private String email;
 
     public Person() {
     }
 
-    public Person(String id, String fullName, String dob, long idCard, String phoneNumber, String email){
+    public Person(String id, String fullName, String dob, String idCard, String phoneNumber, String email){
         this.id = id;
         this.fullName = fullName;
         this.dob = dob;
@@ -46,11 +46,11 @@ public abstract class Person {
         this.dob = dob;
     }
 
-    public long getIdCard() {
+    public String getIdCard() {
         return idCard;
     }
 
-    public void setIdCard(long idCard) {
+    public void setIdCard(String idCard) {
         this.idCard = idCard;
     }
 

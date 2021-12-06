@@ -70,7 +70,7 @@ public class CustomerWriteReadServiceImpl {
         String[] customer;
         for (String st:stringList){
             customer = st.split(",");
-            customerList.add(new Customer(customer[0],customer[1],customer[2],Long.parseLong(customer[3]),customer[4],customer[5],customer[6]));
+            customerList.add(new Customer(customer[0],customer[1],customer[2],customer[3],customer[4],customer[5],customer[6]));
         }
         return customerList;
     }

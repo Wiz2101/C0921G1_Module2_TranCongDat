@@ -39,18 +39,4 @@ public class House extends Facility {
                 ", floor=" + floor +
                 '}';
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        House house = (House) o;
-        return floor == house.floor &&
-                Objects.equals(roomStandard, house.roomStandard);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(roomStandard, floor);
-    }
 }

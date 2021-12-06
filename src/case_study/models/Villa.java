@@ -50,19 +50,4 @@ public class Villa extends Facility {
                 ", floor=" + floor +
                 '}';
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Villa villa = (Villa) o;
-        return Double.compare(villa.poolArea, poolArea) == 0 &&
-                floor == villa.floor &&
-                Objects.equals(roomStandard, villa.roomStandard);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(roomStandard, poolArea, floor);
-    }
 }

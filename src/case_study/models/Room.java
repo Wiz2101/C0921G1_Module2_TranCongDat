@@ -28,18 +28,5 @@ public class Room extends Facility {
                 ", freeService='" + freeService + '\'' +
                 '}';
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Room room = (Room) o;
-        return Objects.equals(freeService, room.freeService);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(freeService);
-    }
 }
 
